@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #c8c9ca;
 }
 
 .App-logo {
@@ -14,19 +15,59 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;  
+  justify-content: left;
+  margin-left: 150px;
+  margin-right: 150px;
+  color: black;
+  text-align: left;
+}
+
+.App-title { 
+    color: red;
+  }
+
+.App-text { 
+    font-size: small;
+    margin-right: 150px;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
+
+.App-Card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.App-Card-Deck {
+    display: flex;
+    flex-flow: row wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-top: 35px;
+}
+
+@media screen and (min-width: 700px) {
+    .App-Card-Deck .App-Card {
+        flex: 1 0;
+        margin-right: 15px;
+        margin-bottom: 0;
+        margin-left: 15px;
+    }
+}
+
 
 @keyframes App-logo-spin {
   from {
