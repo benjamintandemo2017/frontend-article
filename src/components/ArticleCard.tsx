@@ -31,7 +31,7 @@ const ArticleCard: React.FunctionComponent<articleCardProps> = ({ date, title, t
                 </Card.Text>            
             </Card.Body>   
             <Card.Footer>
-                <Button className="btn btn-outline-primary" onClick={toggleReadMore}>{ !isReadMore ? 'READ MORE' : 'READ LESS' } </Button>
+                <Button className="btn-read-more" onClick={toggleReadMore}>{ !isReadMore ? 'READ MORE' : 'READ LESS' } </Button>
             </Card.Footer>                     
         </Card>
     );    
