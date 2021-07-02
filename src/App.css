@@ -98,6 +98,10 @@
     margin-bottom: 0;
     margin-left: 15px;
   }
+
+  .App-text {
+    margin-right: 150px;
+  }
 }
 
 @keyframes App-logo-spin {
