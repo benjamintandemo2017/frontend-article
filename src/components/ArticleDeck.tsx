@@ -1,19 +1,25 @@
 import ArticleCard from './ArticleCard';
 import CardDeck from 'react-bootstrap/CardDeck';
 import React, { Component } from 'react';
-import * as Constants from '../common/Constants';
   
 // Props
+interface IArticleDeckProps {
+    dataSource: { date: string; title: string; text: string; cardClass: string; }[]
+}
+
 // actor. an instance of ActorModel
-export default class ArticleDeck extends Component {  
+export default class ArticleDeck extends Component<IArticleDeckProps> {  
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-    render() {        
+    render() {      
+        const dataSource = this.props.dataSource; 
+        const articleCards = dataSource.map((item, i) =>           
+            <ArticleCard key={i} article={item} />
+        ); 
+        console.log(articleCards);
         return (
             <div>
                 <CardDeck className="App-card-deck">
-                    <ArticleCard date={Constants.cardDate1} title={Constants.cardTitle1} text={Constants.cardText1} additionalText={Constants.textMore1} cardClass={Constants.cardClass1}></ArticleCard>
-                    <ArticleCard date={Constants.cardDate2} title={Constants.cardTitle2} text={Constants.cardText2} additionalText={Constants.textMore2} cardClass={Constants.cardClass2}></ArticleCard> 
-                    <ArticleCard date={Constants.cardDate3} title={Constants.cardTitle3} text={Constants.cardText3} additionalText={Constants.textMore3} cardClass={Constants.cardClass3}></ArticleCard>
+                    {articleCards}                    
                 </CardDeck>
             </div>
         );

@@ -1,33 +1,30 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import React, { useState }  from 'react';
+import { Article } from '../common/articles';
 
-interface articleCardProps {
-    date: string;
-    title: string;
-    text: string;
-    additionalText: string;
-    cardClass: string;
-}
   
 // Props
+interface IArticleCardProps {   
+    article: Article
+}
+
 // actor. an instance of ActorModel
-const ArticleCard: React.FunctionComponent<articleCardProps> = ({ date, title, text, additionalText, cardClass }) => { 
+const ArticleCard: React.FunctionComponent<IArticleCardProps> = (props) => { 
     const [isReadMore, setIsReadMore] = useState(false);
     const toggleReadMore = () => {
         setIsReadMore(!isReadMore);
     };
 
     return (                          
-        <Card className={cardClass}>    
+        <Card className={props.article.cardClass}>    
             <Card.Header className="App-card-header">
-                <p>{date}</p>
+                <p>{props.article.date}</p>
             </Card.Header>
             <Card.Body className="App-card-body">
-                <Card.Title>{title}</Card.Title>
-                <Card.Text className="App-card-text">
-                    <span>{text}</span>
-                    { isReadMore ? <span> {additionalText}</span> : <span>...</span> }                
+                <Card.Title>{props.article.title}</Card.Title>
+                <Card.Text className="App-card-text">                    
+                    { isReadMore ? <span>{props.article.text}</span> : <span> {props.article.text.substr(0,55) + '...'}</span> }                
                 </Card.Text>            
             </Card.Body>   
             <Card.Footer>
